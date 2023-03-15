@@ -1,6 +1,11 @@
 ---
 
 - block:
+    - ansible.builtin.include_tasks: "{{ role_path }}/tasks/add_services.yml"
+  tags:
+    - always
+
+- block:
     - when: garage_garage_enabled | bool
       ansible.builtin.include_tasks: "{{ role_path }}/tasks/setup_garage_install.yml"
   tags:
