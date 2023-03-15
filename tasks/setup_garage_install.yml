@@ -13,16 +13,6 @@
     group: "{{ garage_user_username }}"
     state: present
 
-- name: Ensure Garage base path exists
-  ansible.builtin.file:
-    path: "{{ item }}"
-    state: directory
-    mode: "0750"
-    owner: "{{ garage_user_uid }}"
-    group: "{{ garage_user_gid }}"
-  with_items:
-    - "{{ garage_base_path }}"
-
 - name: Ensure Garage network is created in Docker
   community.docker.docker_network:
     name: "{{ garage_docker_network }}"
