@@ -7,7 +7,7 @@
 
 - name: Ensure garage node is started
   ansible.builtin.service:
-    name: "garage-{{ garage_garage_nodes[0].name }}"
+    name: "garage-{{ garage_nodes[0].name }}"
     state: started
     daemon_reload: true
   register: start_result
@@ -19,6 +19,6 @@
 
 - name: Create bucket user
   ansible.builtin.command:
-    cmd: "docker exec -it garage_{{ garage_garage_nodes[0].name }} /garage bucket create {{ bucket | quote }}"
-  register: garage_garage_create_bucket_result
-  changed_when: garage_garage_create_bucket_result.rc == 0
+    cmd: "docker exec -it garage_{{ garage_nodes[0].name }} /garage bucket create {{ bucket | quote }}"
+  register: garage_create_bucket_result
+  changed_when: garage_create_bucket_result.rc == 0
