@@ -15,7 +15,7 @@
 
 - name: Ensure Garage network is created in Docker
   community.docker.docker_network:
-    name: "{{ garage_docker_network }}"
+    name: "{{ garage_container_network }}"
     driver: bridge
 
 - name: Ensure Garage path exists

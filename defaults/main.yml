@@ -17,7 +17,7 @@ garage_version: 0.8.1
 
 garage_container_image: "docker.io/dxflrs/garage:v{{ garage_version }}"
 
-garage_container_network: '{{ garage_identifier }}'
+garage_container_network: "{{ garage_identifier }}"
 
 # A list of additional container networks that the container would be connected to.
 # The role does not create these networks, so make sure they already exist.
